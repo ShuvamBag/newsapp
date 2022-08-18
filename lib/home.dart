@@ -51,15 +51,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.grey.shade800,
       body:
       SingleChildScrollView(
-     child:GestureDetector(
-     onTap: () => Navigator.of(context).push(
-     MaterialPageRoute(
-     builder: (_) => ReadingNews(
 
-      model: newsList![1],
-     ),
-     ),
-     ),
         child: Column(
           children: [
             isLoading?
@@ -76,6 +68,8 @@ class _HomeState extends State<Home> {
                   shrinkWrap: true,
                   itemCount: newsList?.length,
                   itemBuilder: (context, index) {
+
+
                     return Container(
                       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       child: Card(
@@ -83,6 +77,15 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         elevation: 1,
+                        child: GestureDetector(
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => ReadingNews(
+
+                                  model: newsList![index],
+                                ),
+                              ),
+                            ),
                         child: Stack(
                           children: [
                             ClipRRect(
@@ -93,6 +96,7 @@ class _HomeState extends State<Home> {
                               left: 0,
                               right: 0,
                               bottom: 0,
+
                               child: Container(
 
                                   decoration: BoxDecoration(
@@ -120,17 +124,21 @@ class _HomeState extends State<Home> {
                                       Text(newsList![index].description.length> 50? "${newsList![index].description.substring(0,55)}.....":newsList![index].description,style: TextStyle(color: Colors.white,fontFamily: 'Roboto',fontSize: 12),),
                                     ],
 
-                                  )),
-                            )
+                                  ),
+                              ),
+
+                            ),
+
                           ],
                         ),
                       ),
-                    );
+                      ), );
+
                   }),
             )
           ],
         ),
       ),
-      ),);
+      );
   }
 }
