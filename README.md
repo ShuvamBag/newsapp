@@ -1,6 +1,10 @@
 # newsapp
 
 A new Flutter project.
+Fetch the latest news instantly,download the apk from this link : https://drive.google.com/file/d/131ohl1UObSSzvzq4CT8EnCXF10nbkef6/view?usp=sharing
+
+
+
 
 ## Getting Started
 
